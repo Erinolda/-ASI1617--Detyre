@@ -21,14 +21,12 @@ namespace MyExample
         }
     }
 
-
-    /// The 'Implementor' abstract class
     abstract class ImplementorShape
     {
         public abstract void Operation();
     }
 
-    /// The 'RefinedAbstraction' class   
+  
     class RefinedIShape : IShape
     {
         public override void Operation()
@@ -41,7 +39,7 @@ namespace MyExample
     {
         public override void Operation()
         {
-            Console.WriteLine("This is a circle");
+            Console.WriteLine("Kjo figurë është një rreth");
         }
     }
 
@@ -49,7 +47,7 @@ namespace MyExample
     {
         public override void Operation()
         {
-            Console.WriteLine("This is a square");
+            Console.WriteLine("Kjo figurë është një katror");
         }
         class MainApp
         {
