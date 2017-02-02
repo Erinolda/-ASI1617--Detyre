@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MyExample
+{
+    class IShape
+    {
+        protected ImplementorShape implementor;
+
+        public ImplementorShape ImplementorShape
+        {
+            set { implementor = value; }
+        }
+
+        public virtual void Operation()
+        {
+            implementor.Operation();
+        }
+    }
+
+
+    /// The 'Implementor' abstract class
+    abstract class ImplementorShape
+    {
+        public abstract void Operation();
+    }
+
+    /// The 'RefinedAbstraction' class   
+    class RefinedIShape : IShape
+    {
+        public override void Operation()
+        {
+            implementor.Operation();
+        }
+    }
+
+    class Circle : ImplementorShape
+    {
+        public override void Operation()
+        {
+            Console.WriteLine("This is a circle");
+        }
+    }
+
+    class Square : ImplementorShape
+    {
+        public override void Operation()
+        {
+            Console.WriteLine("This is a square");
+        }
+        class MainApp
+        {
+
+            static void Main()
+            {
+                IShape shape = new RefinedIShape();
+
+                shape.ImplementorShape = new Circle();
+                shape.Operation();
+
+                shape.ImplementorShape = new Square();
+                shape.Operation();
+
+               
+                Console.ReadKey();
+            }
+        }
+    }
+}
